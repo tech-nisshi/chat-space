@@ -31,7 +31,7 @@
 |email|string|null: false, unique: true|
 
 ### Association
-- has_many :groups, through :members
+- has_many :groups, through: :members
 - has_many :messages
 - has_many :members
 
