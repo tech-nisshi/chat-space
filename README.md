@@ -9,8 +9,8 @@
 |user|references|null:false,foreign_key:true|
 
 ### Association
-- belong_to :user
-- belong_to :groups
+- belongs_to :user
+- belongs_to :group
 
 ## membersテーブル
 
