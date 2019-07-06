@@ -12,12 +12,12 @@
 - belongs_to :user
 - belongs_to :group
 
-## membersテーブル
+## group_usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|null: false, foreign_key: true|
-|group|references|null: false, foreign_key: true|
+|user|references|foreign_key: true|
+|group|references|foreign_key: true|
 
 ### Association
 - belongs_to :group
@@ -28,12 +28,13 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false, index: true, unique: true|
-|email|string|null: false, unique: true|
+|email|string|null: false, default: ""|
+|encrypted_password|string|null: false, default""|
 
 ### Association
-- has_many :groups, through: :members
+- has_many :groups, through: :group_users
+- has_many :group_users
 - has_many :messages
-- has_many :members
 
 ## groupsテーブル
 
@@ -42,8 +43,8 @@
 |name|string|null: false|
 
 ### Association
-- has_many :users, through: :members
-- has_many :members
-- has_many :messages
+- has_many :users, through: :group_users
+- has_many :group_users
+- validates :name, presence: true, uniqueness: true
 
 
