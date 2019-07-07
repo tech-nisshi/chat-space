@@ -10,7 +10,7 @@
           Menber : 
           %li.main-header__left-box__member-list__member seo
           %li.main-header__left-box__member-list__member neko     
-      =link_to "Edit", "https://twitter.com/",class: 'main-header__edit-btn'    
+      =link_to "Edit", edit_group_path(current_user), class: 'main-header__edit-btn'    
 
     .messages
       .message{data: {massage_id: "1"}} 
