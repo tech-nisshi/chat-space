@@ -12,5 +12,9 @@
           = fa_icon 'cog', class: 'icon'
   .groups
     .group
-      %p.group__group-name Sample
-      %p.group__latest-message さよなら
+      - current_user.groups.each do |group|
+        =link_to group_messages_path(group), class: "group-link" do
+          .group__group-name
+            = group.name
+          .group__latest-message 
+            メッセージはまだありません。

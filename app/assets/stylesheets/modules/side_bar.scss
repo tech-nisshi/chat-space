@@ -19,6 +19,9 @@
         &__menu{
           display: flex;
           list-style: none;
+          .icon{
+            color: white;
+          }
           &__new-group{
             margin-left: 0.3rem;
           }
@@ -31,16 +34,23 @@
     .groups{
       height: calc(100vh - 100px);
       background-color: $side_blue_light;
-      padding: 20px 20px 0;
+      padding: 20px 20px 0px;
       overflow: scroll;
       .group{
         margin-bottom: 40px;
+        .group-link{
+          text-decoration: none;
+        }
         &__group-name{
           font-size: $side_group_name;
           margin-bottom: 5px;
+          color: white; 
         }
         &__latest-message{
           font-size: $side_group_message;
+          color: white;
+          margin-bottom: 40px;
+          
         }
       }
     }  
