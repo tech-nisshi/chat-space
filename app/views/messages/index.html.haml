@@ -13,14 +13,8 @@
       =link_to "Edit", edit_group_path(current_user), class: 'main-header__edit-btn'    
 
     .messages
-      .message{data: {massage_id: "1"}} 
-        .message__upper-info
-          %p.message__upper-info__talker
-            Seo
-          %p.message__upper-info__date
-            2019/06/30(sun) 22:41:30
-        %p.message__text
-          Hello
+      = render @messages
+      
     .form
       = form_for [@group, @message] do |f|
         = f.text_field :content, class: 'form__message', placeholder: 'type a message'
