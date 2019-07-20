@@ -2,7 +2,6 @@ $(function(){
   
   function buildPost(post){
     image = (post.image)? `<img class= "message__text__image" src=${post.image} >` : "";
-    console.log(image)
     var html = `<div class="message">
                   <div class="message__upper-info">
                     <div class="message__upper-info__talker">
