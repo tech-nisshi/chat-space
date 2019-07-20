@@ -36,7 +36,6 @@ $(function(){
     })
     .done(function(post){
       var html = buildPost(post);
-      console.log(post)
       $('.messages').append(html);
       $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
       $('#new_message')[0].reset();
