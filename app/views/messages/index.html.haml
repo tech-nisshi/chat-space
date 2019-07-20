@@ -5,11 +5,12 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group Sample
+        %h2.main-header__left-box__current-group
+          = @group.name
         %ul.main-header__left-box__member-list 
           Menber : 
-          %li.main-header__left-box__member-list__member seo
-          %li.main-header__left-box__member-list__member neko     
+          - @members.each do |member|
+            = member.name     
       =link_to "Edit", edit_group_path(current_user), class: 'main-header__edit-btn'    
 
     .messages
