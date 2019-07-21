@@ -11,7 +11,7 @@
           Menber : 
           - @members.each do |member|
             = member.name     
-      =link_to "Edit", edit_group_path(current_user), class: 'main-header__edit-btn'    
+      =link_to "Edit", edit_group_path(@group.id), class: 'main-header__edit-btn', data: {"turbolinks": false}    
 
     .messages
       = render @messages
