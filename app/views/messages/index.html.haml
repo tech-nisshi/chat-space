@@ -10,7 +10,7 @@
         %ul.main-header__left-box__member-list 
           Menber : 
           = @members.pluck(:name).join(",")   
-      =link_to "Edit", edit_group_path(@group.id), class: 'main-header__edit-btn', data: {"turbolinks": false}    
+      =link_to "Edit", edit_group_path(@group), class: 'main-header__edit-btn', data: {"turbolinks": false}    
 
     .messages
       = render @messages
