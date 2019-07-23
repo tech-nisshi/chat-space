@@ -1,9 +1,9 @@
 = form_for group do |f|
-  - if group.errors.any?
+  - if @group.errors.any?
     .chat-group-form__errors
       %h2= "#{group.errors.full_messages.count}件のエラーが発生しました。"
       %ul
-        - group.errors.full_messages.each do |message|
+        - @group.errors.full_messages.each do |message|
           %li= message
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
@@ -22,12 +22,16 @@
       %label.chat-group-form__label{for: "chat_group_チャットメンバー"} チャットメンバー
     .chat-group-form__field--right
       #chat-group-users
-        - group.users.each do |user|
-          .chat-group-user.clearfix{id: "chat-group-user-#{user.id}"}
-            = f.hidden_field :user_ids, name: "group[user_ids][]", value: current_user.id
-            -# %input{ name: "group[user_ids][]", type: "hidden", value: current_user.id }/
-            %p.chat-group-user__name #{user.name}
-            - if user.id != current_user.id
+        .chat-group-user.clearfix{id: "chat-group-user-#{current_user.id}"}
+          = f.hidden_field :user_ids, name: "group[user_ids][]", value: current_user.id
+          %p.chat-group-user__name #{current_user.name}
+      #chat-group-users
+        - @group.users.each do |user|
+          - if user.id != current_user.id
+            .chat-group-user.clearfix{id: "chat-group-user-#{user.id}"}
+              = f.hidden_field :user_ids, name: "group[user_ids][]", value: user.id
+              -# %input{ name: "group[user_ids][]", type: "hidden", value: current_user.id }/
+              %p.chat-group-user__name #{user.name}
               .user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn 削除
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
