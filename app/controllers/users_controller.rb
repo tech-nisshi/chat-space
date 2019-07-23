@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  
+  def index
+    #paramsとして送られてきたkeyword(入力語句)で、Userモデルのnameカラムを検索し、その結果を@usersに代入する
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: current_user.id).limit(20)
+    respond_to do |format|
+      # format.html
+      format.json
+    end
+  end
 
   def edit
   end

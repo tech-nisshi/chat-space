@@ -9,9 +9,8 @@
           = @group.name
         %ul.main-header__left-box__member-list 
           Menber : 
-          - @members.each do |member|
-            = member.name     
-      =link_to "Edit", edit_group_path(current_user), class: 'main-header__edit-btn'    
+          = @members.pluck(:name).join(",")   
+      =link_to "Edit", edit_group_path(@group), class: 'main-header__edit-btn', data: {"turbolinks": false}    
 
     .messages
       = render @messages
