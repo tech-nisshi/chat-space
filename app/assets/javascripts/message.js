@@ -70,6 +70,7 @@ $(function(){
   });
 
   var reloadMessages = function(){
+    //グループのメッセージ一覧でのみ自動更新を行う
     if(window.location.href.match(/\/groups\/\d+\/messages/)){
       //一番最後にあるmessageクラスのid属性を取得、last_message_id に代入
       var last_message_id = $('.message:last').data('messageId')
