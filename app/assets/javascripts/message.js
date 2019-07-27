@@ -85,7 +85,6 @@ $(function(){
         //追加するHTMLの入れ物を作る
         var insertHTML = '';
         $(messages).each(function(index, message){
-          console.log(message)
           insertHTML = buildMessageHTML(message);
           $('.messages').append(insertHTML)
           $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight });
